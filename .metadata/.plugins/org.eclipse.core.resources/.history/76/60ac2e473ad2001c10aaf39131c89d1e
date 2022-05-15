@@ -1,0 +1,60 @@
+package components;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+public class ParserDovoleniek2 {
+	
+	public static void main(String[] args) {
+		
+		Integer sucet_dni = 0;
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db = null;
+		try {
+			db = dbf.newDocumentBuilder();
+		} catch (ParserConfigurationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		try {
+			Document nope = db.parse("dovolenky.xml");
+			NodeList list_dovoleniek = nope.getElementsByTagName("dovolenka");
+			
+			String miesto = "";
+			String rok = "";
+			Integer pocetdni = 0;
+			
+			for (int i = 0; i < list_dovoleniek.getLength(); i++) {
+				NodeList dzeci = list_dovoleniek.item(i).getChildNodes();
+				for (int j = 0; j < dzeci.getLength(); j++) {
+					if (dzeci.item(j).getNodeName().equals("miesto")) {
+						miesto = dzeci.item(j).getAttributes().getNamedItem("krajina").getNodeValue();
+					} else if (dzeci.item(j).getNodeName().equals("rok")) {
+						rok = dzeci.item(j).getNodeValue();
+					} else if (dzeci.item(j).getNodeName().equals("pocetdni")) {
+						pocetdni = Integer.parseInt(dzeci.item(j).getTextContent());
+						sucet_dni += pocetdni;
+					}
+				}
+				System.out.println(rok + ": " + miesto);
+			}
+			System.out.println("Súèet dní dovolenky: " + sucet_dni);
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

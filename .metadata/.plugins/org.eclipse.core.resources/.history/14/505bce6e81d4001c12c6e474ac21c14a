@@ -1,0 +1,217 @@
+//ZMENIT NA INE
+
+package balicek;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.print.attribute.HashAttributeSet;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import javafx.application.Platform;
+
+public class Server {
+
+	int port = 2004;
+	Socket socket;
+
+	ServerSocket srv;
+	Map <Integer, InputStream> inputy_map = new HashMap<>();
+	Map <Integer, OutputStream> outputy_map = new HashMap<>();
+	Map <Integer, Integer> myputy = new HashMap<>();
+	Map <Integer, String> menaputas = new HashMap<>();
+	
+	int message_type = 0;
+	
+	
+	Map <Integer, InputStream> users_inputs = new HashMap<>();
+
+	public Server() {
+		try {
+			srv = new ServerSocket(port);
+			Thread thread = new Thread(()-> {
+				accept();
+			});
+			thread.start();
+
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	public void accept() {
+		InputStream rd;
+		OutputStream wr;
+			
+		try {
+			socket = srv.accept();
+			
+			wr = socket.getOutputStream();
+			rd = socket.getInputStream();
+			
+			inputy_map.put(rd.hashCode(), rd);
+			outputy_map.put(wr.hashCode(), wr);
+			myputy.put(rd.hashCode(), wr.hashCode());
+			
+			
+			Thread th = new Thread(() -> {
+				
+				
+				while (prijmiSpravu(rd));
+				
+				inputy_map.remove(rd.hashCode());
+				outputy_map.remove(wr.hashCode());
+				myputy.remove(rd.hashCode());
+				menaputas.remove(rd.hashCode());
+				
+				System.out.println("Koniec rozhovoru." + rd.hashCode() + " skoncil!");
+				
+				ObjectMapper obj_map = new ObjectMapper();
+				ObjectNode slovnik = obj_map.createObjectNode();
+				slovnik.put("sender_id", rd.hashCode());
+				slovnik.put("type", 2); //delete user
+
+				byte[] bts = slovnik.toString().getBytes();
+				
+				try {
+					
+					for (Map.Entry<Integer,OutputStream> output_map : outputy_map.entrySet()) {
+						OutputStream output = output_map.getValue();
+						output.write(bts.length & 255);
+						output.write(bts.length >> 8);
+						output.write(bts, 0, bts.length);
+						output.flush();						
+					}
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
+				//try {
+				//	socket.close();
+				//} catch (Exception e) {
+				//	e.printStackTrace();
+				//}
+				//System.exit(0);
+			});
+			th.start();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		accept();
+	}
+
+	public boolean prijmiSpravu(InputStream rd) {
+		try {
+			
+			//System.out.println(inputy_map);
+			//System.out.println(outputy_map);
+			//System.out.println(myputy);			
+			
+			int nbts = rd.read();
+			int nbts2 = rd.read();
+			if ((nbts < 0) || (nbts2 < 0))
+				return false;
+			nbts = nbts + (nbts2 << 8);
+			byte bts[] = new byte[nbts];
+			int i = 0; // how many bytes did we read so far
+			do {
+				int j = rd.read(bts, i, bts.length - i);
+				if (j > 0)
+					i += j;
+				else
+					break;
+			} while (i < bts.length);
+			
+			ObjectMapper objmap = new ObjectMapper();
+			ObjectNode slovnik = (ObjectNode) objmap.readTree(new String(bts));
+			slovnik.put("sender_id", rd.hashCode());
+			
+			if (menaputas.containsKey(rd.hashCode()) == false) {
+				
+				menaputas.put(rd.hashCode(), slovnik.get("message").asText());
+				
+				for (Map.Entry<Integer,OutputStream> output_map : outputy_map.entrySet()) {
+					OutputStream output = output_map.getValue();
+					if (!myputy.get(rd.hashCode()).equals(output_map.getKey())){
+						
+						ObjectNode slovnik2 = objmap.createObjectNode();
+						slovnik2.put("sender_id", rd.hashCode());
+						slovnik2.put("sender_name", menaputas.get(rd.hashCode()));
+						slovnik2.put("type", 1);
+						slovnik2.put("message", menaputas.get(rd.hashCode()));
+						slovnik2.put("users", menaputas.toString());
+						
+						String sprava = slovnik2.toString();
+						bts = sprava.getBytes();
+						
+						output.write(bts.length & 255);
+						output.write(bts.length >> 8);
+						output.write(bts, 0, bts.length);
+						output.flush();					
+					} else {
+						ObjectNode slovnik2 = objmap.createObjectNode();
+						slovnik2.put("sender_id", rd.hashCode());
+						slovnik2.put("sender_name", menaputas.get(rd.hashCode()));
+						slovnik2.put("type", -1);
+						slovnik2.put("message", menaputas.get(rd.hashCode()));
+						slovnik2.put("users", menaputas.toString());
+						
+						String sprava = slovnik2.toString();
+						bts = sprava.getBytes();
+						
+						output.write(bts.length & 255);
+						output.write(bts.length >> 8);
+						output.write(bts, 0, bts.length);
+						output.flush();					
+					}
+	
+				}
+			} 
+			
+			String sprava = slovnik.toString();
+			bts = sprava.getBytes();
+			
+			try {
+				
+				for (Map.Entry<Integer,OutputStream> output_map : outputy_map.entrySet()) {
+					OutputStream output = output_map.getValue();
+					if (!myputy.get(rd.hashCode()).equals(output_map.getKey())){
+						output.write(bts.length & 255);
+						output.write(bts.length >> 8);
+						output.write(bts, 0, bts.length);
+						output.flush();					
+					} 
+
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} catch (IOException e) {
+			return false;
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+		Server server = new Server();
+	}
+
+}

@@ -1,0 +1,60 @@
+package components;
+import java.util.*;
+
+import org.w3c.dom.Attr;
+import org.xml.sax.*;
+import org.xml.sax.helpers.*;
+
+public class ParserMapiek extends DefaultHandler {
+	
+	Map<Long, List <Float>> mapka = new HashMap<>();
+	List<List <Long>> cesty = new ArrayList();
+	
+	List<Long> tmp_cesta = new ArrayList();
+	
+	boolean spracovavamWay = false;
+	boolean spracovavamChodnicek = false;
+
+  public void startDocument() 
+  {
+    
+  }
+  
+  
+
+  public void startElement(String uri, String localName, String qName, Attributes atts) 
+  {
+    if (qName.equals("node") == true) 
+    {
+    	Long kluc = Long.parseLong(atts.getValue("id"));
+    	Float lat = Float.parseFloat(atts.getValue("lat"));
+    	Float lon = Float.parseFloat(atts.getValue("lon"));
+    	mapka.put(kluc, Arrays.asList(lat, lon));
+    } else if (qName.equals("way") == true) {
+    	spracovavamWay = true;
+    } else if (spracovavamWay == true && qName.equals("nd")) {
+    	tmp_cesta.add(Long.parseLong(atts.getValue("ref")));
+    } else if (spracovavamWay == true && qName.equals("tag")) {
+    	if ((atts.getValue("k").equals("highway")) && (atts.getValue("v").equals("footway"))){
+    		spracovavamChodnicek = true;
+    	} 
+    } 
+  }    
+
+  public void endElement(String uri, String localName, 
+                        String qName) {
+    if (qName.equals("way") == true) {
+    	if (spracovavamChodnicek == true) {
+    		cest
+    	} else {
+    		
+    	}
+    }
+    
+  }    
+
+  public void characters(char[] ch, int start, int length)  {
+      
+
+  }
+}

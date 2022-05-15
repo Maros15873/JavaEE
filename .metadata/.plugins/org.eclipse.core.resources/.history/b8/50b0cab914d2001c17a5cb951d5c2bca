@@ -1,0 +1,61 @@
+package sk.mm;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.stream.JsonParser;
+
+public class EeJson {
+
+	public static void main(String[] args) {
+		try {
+			JsonReader jsr = Json.createReader(new FileInputStream("C:\\Users\\Maros\\Desktop\\JAVA EE\\Json\\src\\sk\\mm\\data.json"));
+			JsonObject objectos = jsr.readObject();
+			
+			JsonObject jname = objectos.getJsonObject("dimension").getJsonObject("og3010rr_ukaz").getJsonObject("category").getJsonObject("label");
+			JsonArray jcount = objectos.get("value").asJsonArray();
+			
+			int jedna_hviezdicka = 10000;
+			
+			int poc = 0;
+			
+			for (String jout : jname.keySet()) {
+				String name = jname.get(jout).toString();
+				String number = jcount.get(poc).toString();
+				poc++;
+				
+				System.out.println(name + ": " + number + " " + "*".repeat(Math.round(Float.parseFloat(number) / jedna_hviezdicka)));
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public List jsonapp(String input_url) throws IOException {
+		
+		List array = new ArrayList<>;
+		
+		URL url = new URL(input_url);
+		InputStream is = url.openStream();
+		
+		JsonParser parser = Json.createParser(is);
+		
+		
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,42 @@
+package components;
+import java.util.*;
+import org.xml.sax.*;
+import org.xml.sax.helpers.*;
+
+public class ParserMapiek extends DefaultHandler {
+	
+	Map<Long, Long[]> mapka = new HashMap<>();
+	List<List <Long>> cesty = new ArrayList();
+
+  public void startDocument() 
+  {
+    
+  }
+
+  public void startElement(String uri, String localName, String qName, Attributes atts) 
+  {
+    if (qName.equals("node") == true) 
+    {
+    	int kluc = Long.parseLong(atts.getValue("id"));
+    	
+    }
+  }    
+
+  public void endElement(String uri, String localName, 
+                        String qName) {
+    if (qName.equals("") == true) 
+    {
+ 
+    }
+    
+  }    
+
+  public void characters(char[] ch, int start, int length) 
+  {
+    if (spracovavamRok == true) 
+    {  
+      
+    }        
+
+  }
+}

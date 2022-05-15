@@ -1,0 +1,46 @@
+package components;
+
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Draw extends JPanel {
+	
+	Map<Long, List <Float>> mapka;
+	List<List <Long>> cesty;
+	
+	
+	
+	public Draw(Map<Long, List<Float>> mapka, List<List<Long>> cesty) {
+		super();
+		this.mapka = mapka;
+		this.cesty = cesty;
+	}
+
+
+
+	public void paint(Graphics g) {
+		for (List<Long> list : cesty) {
+			System.out.println(list.stream().map(x-> Math.round(mapka.get(x).get(0))).mapToInt(Integer::intValue).toArray());
+			System.out.println(list.stream().map(x-> Math.round(mapka.get(x).get(1))).mapToInt(Integer::intValue).toArray());
+			g.drawPolyline(
+					 list.stream().map(x-> Math.round(mapka.get(x).get(0))).mapToInt(Integer::intValue).toArray(), 
+					 list.stream().map(x-> Math.round(mapka.get(x).get(1))).mapToInt(Integer::intValue).toArray(),
+					ABORT);
+		}
+		//g.drawLine(20, 20, 200, 180);
+	}
+
+	
+	
+	public static void main(String[] args) {
+	
+	}
+}

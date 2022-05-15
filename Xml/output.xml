@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><zoznamDovoleniek>
+  <dovolenka id="1">
+    <miesto krajina="Slovensko">Chopok</miesto>
+    <rok>1994</rok>
+    <pocetdni>1</pocetdni>
+  </dovolenka>
+  <dovolenka id="2">
+    <miesto krajina="Taliansko">Catania</miesto>
+    <rok>1995</rok>
+	<pocetdni>2</pocetdni>
+  </dovolenka>
+  <dovolenka id="3">
+    <miesto krajina="Španielsko">Costa Brava</miesto>
+    <rok>1993</rok>
+    <pocetdni>3</pocetdni>
+  </dovolenka>
+</zoznamDovoleniek>
