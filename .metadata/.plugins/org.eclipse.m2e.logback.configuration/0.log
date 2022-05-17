@@ -3023,3 +3023,6 @@ org.eclipse.jdt.core.JavaModelException: module-info.java [in <default> [in src 
 2022-05-17 15:52:50,052 [Worker-47: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for ServletChat
 2022-05-17 15:52:50,058 [Worker-47: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1250 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-05-17 15:52:53,469 [Worker-40: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1250 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-05-17 15:52:53,470 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\ServletChat\src\main\resources
+2022-05-17 15:52:53,472 [Worker-40: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1250 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-05-17 15:52:53,474 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\ServletChat\src\test\resources
