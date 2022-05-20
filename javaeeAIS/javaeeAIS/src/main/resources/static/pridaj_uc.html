@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaEE AIS | Zápis vyučovania</title>
+
+     <nav>
+         <a href="welcome.html">Úvodná stránka</a> |
+         <a href="pridaj_osobu.html">Osoby</a> |
+         <a href="pridaj_predmet.html">Predmety</a> |
+         <a href="pridaj_zapis.html">Zápis predmetu</a> |
+         <a href="pridaj_znamku.html">Zápis známky</a> |
+         <a href="pridaj_uc.html">Zápis vyučovania</a>
+     </nav>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+	
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">  
+<script
+	src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"
+	crossorigin="anonymous"></script>
+
+<body>
+
+<div style="text-align:center">Učiteľ  <select id="input_ucitelia" onchange="doSomething();"><option disabled selected value> -- vyber učiteľa -- </option></select>  
+učí predmet. Už pridelené predmety: <select id="input_predmety"><option disabled selected value> -- predmety -- </option></select>  <button class="btn_odpis" onclick="myScript()">Odpíš predmet!</button> </div>
+<table id="tabulka1">
+	<thead>	
+	<tr><th>názov</th><th>kredity</th><th></th></tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+</body>
+
+<script type="text/javascript">
+function myScript() {
+	
+	var json_data = {};
+	json_data["id_osoba"] = $('#input_ucitelia').val();
+	json_data["id_predmet"] = $('#input_predmety').val();
+	console.log(json_data);
+	if (json_data["id_predmet"] == null) {
+		alert("vyber predmet!");
+	} else {
+    	$.ajax({
+			url: '/osoby/oduc_predmet',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("predmet odpísaný");
+    	location.reload();
+	}
+};
+
+function doSomething() {
+	var id = $('#input_ucitelia').val();
+	console.log(id);
+	
+	$.ajax({
+		url: 'osoby/zoznam',
+		dataType: 'json',
+		type: 'get',
+		success: function( data, textStatus, jQxhr ){
+			document.getElementById("input_predmety").innerHTML = "<option disabled selected value> -- predmety -- </option>"
+			data.forEach(x => {
+				//console.log(x["id"]);
+				if (x["id"] == id){
+					var zoznam_predmetov = x["zoznam_predmetov_uci"]
+					//console.log("zoz " +zoznam_predmetov);
+					zoznam_predmetov.forEach(y => {
+						//console.log(y["menoPredmetu"]);
+						document.getElementById("input_predmety").innerHTML += "<option value=\"" + y["id"] + "\">"+ y["nazov"] + "</option>"
+					})
+				}
+			})
+		},
+		error: function( jqXhr, textStatus, errorThrown ){
+			console.log( errorThrown );
+		}
+		});
+}
+
+
+$(document).ready(function () {
+	
+	//console.log($('#input_ucitelia').val());
+	
+	$.ajax({
+		url: 'osoby/zoznam',
+		dataType: 'json',
+		type: 'get',
+		success: function( data, textStatus, jQxhr ){
+			data.forEach(x => {
+				console.log(x);
+				if (x["zaradenia"].id == 1){
+					document.getElementById("input_ucitelia").innerHTML += "<option value=\"" + x["id"] + "\">"+ x["meno"] + " " + x["priezvisko"] + " (" + x["id"] +")</option>"
+				}
+			})
+		},
+		error: function( jqXhr, textStatus, errorThrown ){
+			console.log( errorThrown );
+		}
+		});
+	
+	var table = $('#tabulka1').DataTable({
+        ajax: {
+    		"url": 'osoby/zoznam_predmety',
+    		"contentType": "application/json",
+    		"type": 'GET',
+    		"dataSrc": ''
+        	},
+        columns: [
+        		{"data":"nazov"},
+        		{"data":"kredity"},
+        		{"defaultContent": '<button class="btn_zapis">Zapíš predmet!</button>', "data":null, "orderable":false}
+        	],
+       	columnDefs: [
+               {"className": "dt-center", "targets": "_all"}
+             ],
+       bSortCellsTop: true
+    });
+    
+    $('#tabulka1 tbody').on('click', '.btn_zapis', function () {
+    	var data = table.row($(this).parents('tr')).data();
+    	
+    	var json_data = {};
+    	json_data["id_osoba"] = $('#input_ucitelia').val();
+    	json_data["id_predmet"] = parseInt(data["id"]);
+    	console.log(json_data);
+    	if (json_data["id_osoba"] == null) {
+    		alert("vyber učiteľa!");
+    	} else {
+	    	$.ajax({
+				url: '/osoby/uc_predmet',
+				dataType: 'json',
+				type: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify(json_data)
+				});
+	    	
+	    	alert("predmet zapísaný");
+	    	location.reload();
+    	}
+    });
+    
+});
+</script>
+
+</html>

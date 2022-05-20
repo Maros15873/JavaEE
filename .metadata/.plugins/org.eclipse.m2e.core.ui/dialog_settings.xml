@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="ServletChat"/>
 			<item value="Servlet"/>
 			<item value="Servlet2"/>
 			<item value="Chat"/>
@@ -12,6 +13,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="ServletChat"/>
 			<item value="Servlet"/>
 			<item value="Servlet2"/>
 			<item value="Chat"/>

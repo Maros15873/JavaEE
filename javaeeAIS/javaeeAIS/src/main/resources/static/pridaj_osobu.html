@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaEE AIS | Osoby</title>
+
+     <nav>
+         <a href="welcome.html">Úvodná stránka</a> |
+         <a href="pridaj_osobu.html">Osoby</a> |
+         <a href="pridaj_predmet.html">Predmety</a> |
+         <a href="pridaj_zapis.html">Zápis predmetu</a> |
+         <a href="pridaj_znamku.html">Zápis známky</a> |
+         <a href="pridaj_uc.html">Zápis vyučovania</a>
+     </nav>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+	
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">  
+<script
+	src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"
+	crossorigin="anonymous"></script>
+
+<body>
+
+
+<table id="tabulka1">
+	<thead>
+	<tr><th>meno</th><th>priezvisko</th><th>zaradenie</th><th></th></tr>
+	<tr><th><input id="input_meno" type="text"></th><th><input id="input_priezvisko" type="text"></th><th><select id="input_zaradenie"></select></th><th><button class="btn_pridaj">Pridaj!</button></th></tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+	$.ajax({
+		url: 'osoby/zoznam_zaradenia',
+		dataType: 'json',
+		type: 'get',
+		success: function( data, textStatus, jQxhr ){
+			data.forEach(x => {
+				console.log(x);
+				document.getElementById("input_zaradenie").innerHTML += "<option value=\"" + x["id"] + "\">"+ x["nazov"] +"</option>"
+			})
+		},
+		error: function( jqXhr, textStatus, errorThrown ){
+			console.log( errorThrown );
+		}
+		});
+	
+    var table = $('#tabulka1').DataTable({
+        ajax: {
+    		"url": 'osoby/zoznam',
+    		"contentType": "application/json",
+    		"type": 'GET',
+    		"dataSrc": ''
+        	},
+        columns: [
+        		{"data":"meno"},
+        		{"data":"priezvisko"},
+        		{"data":"zaradenia.nazov"},
+        		
+        		{"defaultContent": '<button class="btn_uprav">Uprav!</button> <button class="btn_zmaz">Zmaz!</button>', "data":null, "orderable":false}
+        	],
+       	columnDefs: [
+               {"className": "dt-center", "targets": "_all"}
+             ],
+       bSortCellsTop: true
+    });
+    
+    $('#tabulka1 tbody').on('click', '.btn_uprav', function () {
+        var data = table.row($(this).parents('tr')).data();
+        //alert("HELLO THERE! - "+data["zaradenia"].id);
+        
+        var json_data = {};
+        json_data["id"] = parseInt(data["id"]);
+    	json_data["meno"] = $('#input_meno').val();
+    	json_data["priezvisko"] = $('#input_priezvisko').val();
+    	json_data["zaradenia"] = parseInt($('#input_zaradenie').val());
+    	console.log(json_data);
+    	$.ajax({
+			url: '/osoby/uprav_osobu',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("osoba upravená");
+    	location.reload();
+    });
+    
+    $('#tabulka1 tbody').on('click', '.btn_zmaz', function () {
+        var data = table.row($(this).parents('tr')).data();
+        //alert("FUCK YOU! - "+data["id"]);
+        
+        var json_data = {};
+        json_data["id"] = parseInt(data["id"]);
+    	json_data["meno"] = data["meno"];
+    	json_data["priezvisko"] = data["priezvisko"];
+    	json_data["zaradenia"] = data["zaradenia"].id;
+    	console.log(json_data);
+    	$.ajax({
+			url: '/osoby/vymaz_osobu',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("osoba vymazaná");
+    	location.reload();
+    });
+    
+    $('#tabulka1 thead').on('click', '.btn_pridaj', function () {
+    	var json_data = {};
+    	json_data["meno"] = $('#input_meno').val();
+    	json_data["priezvisko"] = $('#input_priezvisko').val();
+    	json_data["zaradenia"] = parseInt($('#input_zaradenie').val());
+    	console.log(json_data);
+    	$.ajax({
+			url: '/osoby/pridaj_osobu',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("osoba pridaná");
+    	location.reload();
+    	
+    });
+    
+    
+    
+});
+</script>
+
+</html>

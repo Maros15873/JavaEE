@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaEE AIS | Predmety</title>
+
+     <nav>
+         <a href="welcome.html">Úvodná stránka</a> |
+         <a href="pridaj_osobu.html">Osoby</a> |
+         <a href="pridaj_predmet.html">Predmety</a> |
+         <a href="pridaj_zapis.html">Zápis predmetu</a> |
+         <a href="pridaj_znamku.html">Zápis známky</a> |
+         <a href="pridaj_uc.html">Zápis vyučovania</a>
+     </nav>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+	
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">  
+<script
+	src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"
+	crossorigin="anonymous"></script>
+
+<body>
+
+
+<table id="tabulka1">
+	<thead>
+	<tr><th>nazov</th><th>kredity</th><th></th></tr>
+	<tr><th><input id="input_nazov" type="text"></th><th><input id="input_kredity" type="text"></th><th><button class="btn_pridaj">Pridaj!</button></th></tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    var table = $('#tabulka1').DataTable({
+        ajax: {
+    		"url": 'osoby/zoznam_predmety',
+    		"contentType": "application/json",
+    		"type": 'GET',
+    		"dataSrc": ''
+        	},
+        columns: [
+        		{"data":"nazov"},
+        		{"data":"kredity"},
+        		{"defaultContent": '<button class="btn_uprav">Uprav!</button> <button class="btn_zmaz">Zmaz!</button>', "data":null, "orderable":false}
+        	],
+       	columnDefs: [
+               {"className": "dt-center", "targets": "_all"}
+             ],
+       bSortCellsTop: true
+    });
+    
+    $('#tabulka1 tbody').on('click', '.btn_uprav', function () {
+    	var data = table.row($(this).parents('tr')).data();
+        
+        var json_data = {};
+        json_data["id"] = parseInt(data["id"]);
+    	json_data["nazov"] = $('#input_nazov').val();
+    	json_data["kredity"] = parseInt($('#input_kredity').val());
+    	console.log(json_data);
+    	$.ajax({
+			url: '/osoby/uprav_predmet',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("predmet upravený");
+    	location.reload();
+    });
+    
+    $('#tabulka1 tbody').on('click', '.btn_zmaz', function () {
+    	var data = table.row($(this).parents('tr')).data();
+        
+        var json_data = {};
+        json_data["id"] = parseInt(data["id"]);
+    	json_data["nazov"] = data["nazov"];
+    	json_data["kredity"] = parseInt(data["kredity"]);
+    	console.log(json_data);
+    	$.ajax({
+			url: '/osoby/vymaz_predmet',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("predmet vymazaný");
+    	location.reload();
+    });
+    
+    $('#tabulka1 thead').on('click', '.btn_pridaj', function () {
+    	var json_data = {};
+    	json_data["nazov"] = $('#input_nazov').val();
+    	json_data["kredity"] = parseInt($('#input_kredity').val());
+    	console.log(json_data);
+    	$.ajax({
+			url: '/osoby/pridaj_predmet',
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify(json_data)
+			});
+    	
+    	alert("predmet pridaný");
+    	location.reload();
+    });
+
+});
+</script>
+
+</html>

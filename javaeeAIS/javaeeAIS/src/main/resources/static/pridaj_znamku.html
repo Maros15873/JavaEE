@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaEE AIS | Zápis známky</title>
+
+     <nav>
+         <a href="welcome.html">Úvodná stránka</a> |
+         <a href="pridaj_osobu.html">Osoby</a> |
+         <a href="pridaj_predmet.html">Predmety</a> |
+         <a href="pridaj_zapis.html">Zápis predmetu</a> |
+         <a href="pridaj_znamku.html">Zápis známky</a> |
+         <a href="pridaj_uc.html">Zápis vyučovania</a>
+     </nav>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+	
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">  
+<script
+	src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"
+	crossorigin="anonymous"></script>
+
+<body>
+
+<div style="text-align:center">
+známka: <select id="input_znamky"><option disabled selected value> -- známka -- </option>
+<option value='A'>A</option>
+<option value='B'>B</option>
+<option value='C'>C</option>
+<option value='D'>D</option>
+<option value='E'>E</option>
+<option value='Fx'>Fx</option>
+<option value='blank'>-</option>
+</select></div>
+<table id="tabulka1">
+	<thead>
+	<tr><th>osoba</th><th>predmet</th><th>známka</th><th></th></tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+</body>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+    var table = $('#tabulka1').DataTable({
+        ajax: {
+    		"url": 'osoby/zoznam_studuje',
+    		"contentType": "application/json",
+    		"type": 'GET',
+    		"dataSrc": ''
+        	},
+        columns: [
+        		{"data":"menoOsoby"},
+        		{"data":"menoPredmetu"},
+        		{"data":"znamka"},
+        		
+        		{"defaultContent": '<button class="btn_zapis">Zapíš známku!</button>', "data":null, "orderable":false}
+        	],
+       	columnDefs: [
+               {"className": "dt-center", "targets": "_all"}
+             ],
+       bSortCellsTop: true
+    });
+    
+    $('#tabulka1 tbody').on('click', '.btn_zapis', function () {
+		var data = table.row($(this).parents('tr')).data();
+    	
+    	var json_data = {};
+    	json_data["id_osoba"] = parseInt(data["id_osoba"]);
+    	json_data["id_predmet"] = parseInt(data["id_predmet"]);
+    	json_data["znamka"] = $('#input_znamky').val();
+    	json_data["id"] = parseInt(data["id"]);
+    	console.log(json_data);
+    	if (json_data["znamka"] == null) {
+    		alert("vyber známku!");
+    	} else {
+	    	$.ajax({
+				url: '/osoby/zapis_znamku',
+				dataType: 'json',
+				type: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify(json_data)
+				});
+	    	
+	    	alert("známka zapísaná");
+	    	location.reload();
+    	}
+    });
+    
+
+});
+</script>
+
+</html>
