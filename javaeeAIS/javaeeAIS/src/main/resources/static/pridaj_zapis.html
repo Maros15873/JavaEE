@@ -45,6 +45,7 @@ zapíše predmet. Už zapísané predmety: <select id="input_predmety"><option d
 function myScript() {
 	
 	var json_data = {};
+	json_data["id_osoba"] = $('#input_studenti').val();
 	json_data["id"] = $('#input_predmety').val();
 	console.log(json_data);
 	if (json_data["id"] == null) {

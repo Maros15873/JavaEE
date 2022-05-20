@@ -9333,3 +9333,122 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2022-05-20 04:06:20,409 [Worker-674: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-05-20 04:06:20,409 [Worker-674: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-05-20 04:06:20,409 [Worker-674: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:21:46,110 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:21:46,111 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:21:46,115 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:21:46,183 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:21:46,194 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:21:46,195 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:21:46,195 [Worker-711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:26:33,578 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:26:33,578 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:26:33,579 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-05-20 10:26:33,579 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:26:33,586 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:26:33,586 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:26:33,586 [Worker-670: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:28:30,265 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:28:30,265 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:28:30,267 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:28:30,342 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:28:30,349 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:28:30,349 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:28:30,350 [Worker-712: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:36:44,549 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:36:44,549 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:36:44,552 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:36:44,564 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:36:44,570 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:36:44,570 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:36:44,570 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:38:07,770 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:38:07,770 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:38:07,772 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:38:07,780 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:38:07,786 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:38:07,786 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:38:07,786 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:41:22,995 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:41:22,995 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:41:22,995 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-05-20 10:41:22,996 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:41:23,002 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:41:23,003 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:41:23,003 [Worker-714: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:41:46,661 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:41:46,661 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:41:46,665 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:41:46,679 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:41:46,687 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:41:46,687 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:41:46,687 [Worker-722: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:43:33,882 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:43:33,882 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:43:33,884 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:43:33,897 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:43:33,904 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:43:33,904 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:43:33,905 [Worker-718: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:43:39,667 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:43:39,668 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:43:39,670 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:43:39,677 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:43:39,683 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:43:39,683 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:43:39,683 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:43:51,651 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:43:51,651 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:43:51,654 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:43:51,662 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:43:51,669 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:43:51,669 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:43:51,669 [Worker-723: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:44:22,388 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:44:22,389 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:44:22,391 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:44:22,399 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:44:22,405 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:44:22,405 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:44:22,405 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:46:53,996 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:46:53,997 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:46:53,999 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:46:54,043 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:46:54,050 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:46:54,050 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:46:54,050 [Worker-725: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:48:31,636 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:48:31,637 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:48:31,638 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-05-20 10:48:31,638 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:48:31,643 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:48:31,643 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:48:31,643 [Worker-721: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 10:50:05,801 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:50:05,801 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:50:05,803 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 10:50:05,846 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2022-05-20 10:50:05,853 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 10:50:05,853 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 10:50:05,853 [Worker-708: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 11:12:58,337 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 11:12:58,337 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 11:12:58,337 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-05-20 11:12:58,338 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 11:12:58,342 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 11:12:58,342 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 11:12:58,342 [Worker-729: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 11:15:54,233 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 11:15:54,234 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 11:15:54,234 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-05-20 11:15:54,234 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 11:15:54,240 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 11:15:54,240 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 11:15:54,240 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources
+2022-05-20 11:26:31,446 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 11:26:31,447 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 11:26:31,447 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-05-20 11:26:31,447 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-05-20 11:26:31,455 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-05-20 11:26:31,455 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-05-20 11:26:31,455 [Worker-730: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maros\Desktop\JAVA EE\javaeeAIS\javaeeAIS\src\test\resources

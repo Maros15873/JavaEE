@@ -162,10 +162,22 @@ public class OsobyController {
 			
 			Osoby osoba = osobyRepository.getById(id_osoba);
 			Predmety predmet = predmetRepository.getById(id_predmet);
-			Studuje studuje = new Studuje();
-			studuje.setOsoba(osoba);
-			studuje.setPredmet(predmet);
-			studujeRepository.save(studuje);
+			
+			var pridat_ok = true;
+			for (Studuje studuje : osoba.getZoznam_predmetov_studuje()) {
+				if (studuje.getOsoba().equals(osoba) && studuje.getPredmet().equals(predmet)) {
+					pridat_ok = false;
+				}
+			}
+			
+			if (pridat_ok == true) {
+				Studuje studuje = new Studuje();
+				studuje.setOsoba(osoba);
+				studuje.setPredmet(predmet);
+				osoba.getZoznam_predmetov_studuje().add(studuje);
+				studujeRepository.save(studuje);
+			}
+
 		} catch (JsonMappingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -181,10 +193,15 @@ public class OsobyController {
 			ObjectMapper objmap_json = new ObjectMapper();
 			ObjectNode slovnik_json;
 			slovnik_json = (ObjectNode) objmap_json.readTree(data_json);
+			Integer id_osoba = slovnik_json.get("id_osoba").asInt();
 			Integer id = slovnik_json.get("id").asInt();
 			
+			Osoby osoba = osobyRepository.getById(id_osoba);
 			Studuje studuje = studujeRepository.getById(id);
+			
+			osoba.getZoznam_predmetov_studuje().remove(studuje);
 			studujeRepository.delete(studuje);
+			
 		} catch (JsonMappingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

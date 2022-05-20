@@ -1,7 +1,0 @@
-package components;
-import org.xml.sax.helpers.DefaultHandler;
-
-public class ParserDovoleniek2 extends DefaultHandler 
-{
-  
-}
