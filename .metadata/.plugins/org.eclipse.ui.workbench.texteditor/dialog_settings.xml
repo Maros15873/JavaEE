@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="odpis"/>
-		<item key="wrap" value="true"/>
+		<item key="selection" value="user_id"/>
+		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="aktId"/>
+			<item value="parse"/>
+			<item value="sendButton"/>
+			<item value="servlet"/>
+			<item value="p"/>
+			<item value="Pokec"/>
+			<item value="pokec"/>
+			<item value="chat"/>
+			<item value="message"/>
+			<item value="skip"/>
+			<item value="on"/>
+			<item value="json"/>
 			<item value="odpis"/>
 			<item value="input_studenti"/>
 			<item value="auto"/>
-			<item value="Long"/>
-			<item value="userName"/>
-			<item value="favico"/>
-			<item value="Pokec"/>
-			<item value="pokec"/>
-			<item value="90"/>
-			<item value="file"/>
-			<item value="relea"/>
-			<item value="koniec"/>
-			<item value="t2"/>
-			<item value="ru"/>
-			<item value="resul"/>
 		</list>
 		<list key="replacehistory">
+			<item value="user_id"/>
+			<item value="json"/>
+			<item value="on"/>
 			<item value="input_ucitelia"/>
 			<item value="Integer"/>
 			<item value="jcount"/>
